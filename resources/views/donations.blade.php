@@ -16,8 +16,7 @@ class="field field--name-field-title field--type-text field--label-hidden">Donac
                     class="field field--name-field-number field--type-paragraphs field--label-hidden">
                     <div class="field__items">
 
-
-
+                        @foreach ($donaciones as $donacion)
                         <!-- Comienzo del HTML correspondiente a 1 donación -->
                         <div class="field__item even">
                             <div class="entity entity-paragraphs-item paragraphs-item-number"
@@ -28,19 +27,23 @@ class="field field--name-field-title field--type-text field--label-hidden">Donac
                                     <div
                                         class="field field--name-field-title field--type-text field--label-hidden">
                                         <!-- Escribe aquí la cantidad donada -->
-                                        100 euros.
+                                        {{ $donacion->partner_type_qty }} euros.
                                     </div>
                                     <div
                                         class="field field--name-field-subtitle field--type-text-long field--label-hidden">
                                         <div class="field__items">
                                             <div class="field__item even">
-                                                Nombre Apellido1 Apellido2</div>
+                                                {{ $donantes[$donacion->donante_id]->donation_personal_name}}&nbsp;
+                                                {{ $donantes[$donacion->donante_id]->donation_personal_last_name1}}&nbsp;
+                                                {{ $donantes[$donacion->donante_id]->donation_personal_last_name2}}
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Fin del HTML correspondiente a 1 donación -->
+                        @endforeach
 
 
 

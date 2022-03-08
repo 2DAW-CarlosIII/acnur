@@ -231,12 +231,16 @@
                     <a href="/area-privada" title="Área privada" rel="nofollow" class="user-icon">
                         <img src="https://eacnur.org/profiles/eacnur_web/themes/custom/eacnur/images/user-icon.svg" alt="Área privada" />Área privada
                     </a>
-                    <a href="/buscador" alt="Buscar" title="Buscar" class="search-icon">
+                    <a href="" alt="Buscar" title="Buscar" class="search-icon">
                         <img src="https://eacnur.org/profiles/eacnur_web/themes/custom/eacnur/images/search-icon.svg" alt="Buscar" />Buscar
                     </a>
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                            <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                            <form action="{{ url('/logout') }}" method="post" class="text-sm text-gray-700 dark:text-gray-500 underline" style="float: right;">
+                                @csrf
+                                <input type="submit" value="Logout" style="color: white; background: black; border: none;"/>
+                            </form>
                         @else
                             <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log
                                 in</a>
@@ -259,17 +263,21 @@
                     <div class="header-inner-left"><a href="mailto:eacnur@eacnur.org">Atención al socio<img
                                 class="phone-icon"
                                 src="https://eacnur.org/profiles/eacnur_web/themes/custom/eacnur/images/phone-icon.svg"
-                                alt="Mensual" />900 900 532 - eacnur@eacnur.org</a></div> <a href="/es/area-privada"
+                                alt="Mensual" />900 900 532 - eacnur@eacnur.org</a></div> <a href="/area-privada"
                         title="Área privada" rel="nofollow" class="user-icon"><img
                             src="https://eacnur.org/profiles/eacnur_web/themes/custom/eacnur/images/user-icon.svg"
-                            alt="Área privada" />Área privada</a> <a href="/es/buscador" alt="Buscar" title="Buscar"
+                            alt="Área privada" />Área privada</a> <a href="#" alt="Buscar" title="Buscar"
                         class="search-icon"><img
                             src="https://eacnur.org/profiles/eacnur_web/themes/custom/eacnur/images/search-icon.svg"
                             alt="Buscar" />Buscar</a>
 
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                            <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                            <form action="{{ url('/logout') }}" method="post" class="text-sm text-gray-700 dark:text-gray-500 underline" style="float: right;">
+                                @csrf
+                                <input type="submit" value="Logout" style="color: white; background: black; border: none;"/>
+                            </form>
                         @else
                             <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log
                                 in</a>
