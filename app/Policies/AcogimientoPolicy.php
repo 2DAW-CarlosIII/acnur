@@ -77,7 +77,7 @@ class AcogimientoPolicy
      */
     public function delete(User $user, Acogimiento $acogimiento)
     {
-        //
+        return $user->email == 'admin@acnur.org';
     }
 
     /**

@@ -84,6 +84,9 @@ class AcogimientoController extends Controller
      */
     public function destroy(Acogimiento $acogimiento)
     {
-        $acogimiento->delete();
+        $this->authorize('delete', $acogimiento);
+        if(!$acogimiento->aceptado) {
+            $acogimiento->delete();
+        }
     }
 }
