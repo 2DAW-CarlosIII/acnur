@@ -23,6 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')
+    ->put('/acogimientos/aceptar/{id}', [AcogimientoController::class, 'aceptar']);
+
+Route::middleware('auth:sanctum')
     ->apiResource('acogimientos', AcogimientoController::class);
 
 Route::post('/tokens/create', function (Request $request) {

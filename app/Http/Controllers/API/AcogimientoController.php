@@ -15,6 +15,20 @@ class AcogimientoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function aceptar($id)
+    {
+        $acogimiento = Acogimiento::find($id);
+        $this->authorize('aceptar', $acogimiento);
+        $acogimiento->aceptado = true;
+        $acogimiento->save();
+        return new AcogimientoResource($acogimiento);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $acogimientos = Acogimiento::where('user_id', Auth::id())->get();

@@ -16,7 +16,8 @@ class AcogimientoResource extends JsonResource
     {
         return [
             'familia acogida' => new UserResource($this->user),
-            'acogido' => new AcogidoResource($this->acogido)
+            'acogido' => new AcogidoResource($this->acogido),
+            'aceptado' => $this->aceptado,
         ];
     }
 }
