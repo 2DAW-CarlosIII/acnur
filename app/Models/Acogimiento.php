@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Acogimiento extends Model
 {
     use HasFactory;
+
+    public function usuario(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function acogidos(){
+        return $this->hasMany(Acogido::class);
+    }
 }
