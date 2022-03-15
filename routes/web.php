@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DonacionesController;
+use App\Http\Controllers\DonantesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/donantes', [DonantesController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
