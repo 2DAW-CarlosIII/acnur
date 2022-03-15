@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\donaciones;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,16 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('admin/catalog', function() {
+    // Solo se permite el acceso a usuarios autenticados
+})->middleware('auth');
+
+// Para proteger una acción de un controlador:
+Route::get('profile', [ProfileController::class, 'show'])->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('donacion', [DonacionesController::class, 'getIndex']);
+    Route::get('donacion/create', [DonacioneController::class, 'getCreate']);
+    // ...
+});
