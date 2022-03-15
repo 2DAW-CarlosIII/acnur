@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Acogimiento;
+use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class User extends Authenticatable
 {
@@ -41,4 +44,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function acogiminetoAuth(FacadesRequest $request)
+    {
+        $acogida = $request->exists('user_id');
+        return $this->hasOne(Acogimiento::class, $acogida);
+    }
 }
