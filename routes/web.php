@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DonacionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/donacion', [DonacionController::class, 'store'])->name('donaciones');
+
+Route::get('/area-privada', function () {
+    return view('donations');
+})->middleware(['auth'])->name('area-privada');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

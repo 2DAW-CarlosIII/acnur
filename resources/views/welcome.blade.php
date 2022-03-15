@@ -16,7 +16,7 @@ class="field field--name-field-send-help-form field--type-blockreference field--
                 <div id="replace_donation_form">
                     <form
                         class="eacnur-donation-main-form"
-                        action="#"
+                        action="/donacion"
                         method="post"
                         id="eacnur-donation-main-form"
                         accept-charset="UTF-8">
