@@ -19,6 +19,11 @@ class DatabaseSeeder extends Seeder
         // vaciar las tablas
         Acogimiento::truncate();
         User::truncate();
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@acnur.org',
+            'password' => bcrypt('password');
+        ]);
         Acogido::truncate();
 
         // rellenar las tablas
