@@ -23,7 +23,7 @@
                                     <div
                                         class="field field--name-field-title field--type-text field--label-hidden">
                                         <!-- Escribe aquí la cantidad donada -->
-                                        100 euros.
+                                        {{ $donacion->partner_type_qty }} euros.
                                     </div>
                                     <div
                                         class="field field--name-field-subtitle field--type-text-long field--label-hidden">

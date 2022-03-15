@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Acogido;
+use App\Models\Acogimiento;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // vaciar las tablas
+        Acogimiento::truncate();
+        User::truncate();
+        Acogido::truncate();
+
+        // rellenar las tablas
+        User::factory(20)->create();
+        Acogido::factory(40)->create();
+        Acogimiento::factory(20)->create();
     }
 }
