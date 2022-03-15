@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AcogimientoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DonacionesController;
 
@@ -13,6 +14,8 @@ use App\Http\Controllers\DonacionesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::apiResource('acogimientos', AcogimientoController::class);
 
 Route::get('/', function () {
     return view('welcome');
